@@ -41,7 +41,7 @@ under the License.
   	     <button id="addToList" class="ui-btn ui-corner-all">add to list</button>  
   </div>
   <div data-role="content" id="ListDiv">
-  	<ul id="List" data-role="listview"></ul>
+  	<ul id="List" data-role="listview" data-split-icon="delete" data-split-theme="d" data-inset="true"></ul>
   </div>
  
     <p id="doClearAll"><a id="clearAll" href="javascript:void();">Clear All</a></p>
@@ -54,18 +54,19 @@ under the License.
 
 <script type="text/javascript">
 	$(document).on('pagecreate',function() {
-	$.event.special.swipe.horizontalDistanceThreshold = 10; // Swipe horizontal displacement must be more than this.
+	
+	/*$.event.special.swipe.horizontalDistanceThreshold = 10; // Swipe horizontal displacement must be more than this.
 	$('#List').on('swiperight','li', function(){
     	localStorage.setItem("whatsonyourmind",localStorage.getItem('whatsonyourmind').replace('<li>'+ $(this).text() + '</li>', "")); 
     	var listitem = $( this );
     	listitem.addClass( "ui-screen-hidden" );
     	this.remove();          
     	$('#List').listview('refresh');
-	});		
+	});*/			
 		$("#addToList").click(function(e) {
 			var inpObj =$('#toDoItem').val();
 			if($('#toDoItem').val().length>0) {
-				var itemList = '<li>'+ inpObj + '</li>';
+				var itemList = '<li><a>'+ inpObj + '</a><a class="del" href="#">Delete</a></li>';
 				$('#List').append(itemList);
 			    $('#List').listview('refresh');
 			    if ( localStorage.getItem('whatsonyourmind') ){
@@ -82,10 +83,6 @@ under the License.
 			location.reload();
 		});
 		
-		//$.event.special.swipe.scrollSupressionThreshold = 10; // More than this horizontal displacement, and we will suppress scrolling.
-		//$.event.special.swipe.durationThreshold = 500;  // More time than this, and it isn't a swipe.
-		//$.event.special.swipe.verticalDistanceThreshold = 75; // Swipe vertical displacement must be less than this.
-		
 		$('#List').listview();
 		loadToDo();
 		function loadToDo() {
@@ -94,6 +91,13 @@ under the License.
 		    $('#List').listview('refresh');
 		  }
 		}
+	});
+	$(document.body).on('click', '.del' ,function(){
+	    var listitem = $(this).parent();
+	    localStorage.setItem("whatsonyourmind",localStorage.getItem('whatsonyourmind').replace('<li><a>'+ $(listitem).text() + '</a><a class="del" href="#">Delete</a></li>', "")); 
+    	listitem.addClass( "ui-screen-hidden" );
+    	this.remove();          
+    	$('#List').listview('refresh');
 	});
 	
 	</script>
