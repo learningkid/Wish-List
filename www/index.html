@@ -43,10 +43,7 @@ under the License.
   <div data-role="content" id="ListDiv">
   	<ul id="List" data-role="listview" data-split-icon="delete" data-split-theme="d" data-inset="true"></ul>
   </div>
- 
     <p id="doClearAll"><a id="clearAll" href="javascript:void();">Clear All</a></p>
-  
-
   <div data-role="footer">
     <h1></h1>
   </div>
@@ -80,7 +77,8 @@ under the License.
 		$("#clearAll").click(function(e) {
 			e.preventDefault();
 			localStorage.clear();
-			location.reload();
+			//location.reload();
+			$('#List').empty();
 		});
 		
 		$('#List').listview();
