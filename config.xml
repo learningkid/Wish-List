@@ -1,5 +1,5 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ss.android.app" version="1.0.0">
-  <name>Wish</name>
+  <name>Wish List</name>
   <description>Create Wish List.</description>
   <author href="" email="azeemsattar75@gmail.com">Wish-List Team</author>
   <content src="index.html"/>
