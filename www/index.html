@@ -23,6 +23,18 @@ under the License.
 	<head>
 		<meta name="viewport" content="initial-scale=1, width=device-width" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<style>
+			#ListDiv {
+			    position: absolute;
+			    top: 0px;
+			    left:0px;
+			    right: 0px;
+			    bottom: 0px;
+			    margin-top: 48px;
+			    overflow: auto;
+			    -webkit-overflow-scrolling: touch;
+			}
+		</style>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" src="cordova.js"></script>
@@ -32,21 +44,19 @@ under the License.
 	</head>
 	<body>
 		<div data-role="page">
-  <div data-role="header" data-position="fixed">
+  <div data-role="header" data-theme="b">
     <h1>Wish List!</h1>
   </div>
 
-  <div data-role="main" class="ui-content">
-		<input type="text" name="toDoItem" id="toDoItem" data-clear-btn="true">
-  	     <button id="addToList" class="ui-btn ui-corner-all">add to list</button>  
-  </div>
   <div data-role="content" id="ListDiv">
-  	<ul id="List" data-role="listview" data-split-icon="delete" data-split-theme="d" data-inset="true"></ul>
+  	  <div data-role="main" class="ui-content">
+			<input type="text" name="toDoItem" id="toDoItem" data-clear-btn="true">
+	  	     <button id="addToList" class="ui-btn ui-corner-all">add to list</button>  
+	  </div>
+	    	<ul id="List" data-role="listview" data-split-icon="delete" data-split-theme="d" data-inset="true"></ul>
+    		<p id="doClearAll"><a id="clearAll" href="javascript:void();">Clear All</a></p>
   </div>
-    <p id="doClearAll"><a id="clearAll" href="javascript:void();">Clear All</a></p>
-  <div data-role="footer" data-position="fixed">
-    <h1></h1>
-  </div>
+
 </div> 
 
 <script type="text/javascript">
