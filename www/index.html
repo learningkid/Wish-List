@@ -24,16 +24,6 @@ under the License.
 		<meta name="viewport" content="initial-scale=1, width=device-width" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<style>
-			#ListDiv {
-			    position: absolute;
-			    top: 0px;
-			    left:0px;
-			    right: 0px;
-			    bottom: 0px;
-			    margin-top: 48px;
-			    overflow: auto;
-			    -webkit-overflow-scrolling: touch;
-			}
 		</style>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -107,21 +97,6 @@ under the License.
     	this.remove();          
     	$('#List').listview('refresh');
 	});
-	function ScaleContentToDevice() {
-	    scroll(0, 0);
-	    var viewportHeight = $(window).height();
-	    var content = $("#contDiv");
-	    var contentMargins = content.outerHeight() - content.height();
-	    var contentheight = viewportHeight - contentMargins;
-	    content.height(contentheight);
-    };
-
-	$(document).on("pageshow", function () {
-	    ScaleContentToDevice();
-	});
-	$(window).on('resize orientationchange', function () {
-	    ScaleContentToDevice()
-	}); 
 	</script>
 	</body>
 </html>
