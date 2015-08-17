@@ -96,8 +96,10 @@ under the License.
     	listitem.addClass( "ui-screen-hidden" );
     	this.remove();          
     	$('#List').listview('refresh');
-    	if ( localStorage.getItem('whatsonyourmind') =="") {
-    	    $("#doClearAll").hide();
+    	if ( localStorage.getItem('whatsonyourmind').length > 0) {
+    	    $("#doClearAll").show();
+    	}else{
+    		$("#doClearAll").hide();
     	}
 	});
 	</script>
